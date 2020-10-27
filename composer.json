@@ -1,0 +1,28 @@
+{
+    "authors": [{
+        "name": "Charllie Ricardez",
+        "email": "charlyleon763@gmail.com",
+        "role": "Developer Backend"
+    }, {
+        "name": "Roberto Perez",
+        "email": "roberthoperezd@gmail.com",
+        "role": "Developer Frontend"
+    }, {
+        "name": "Steven Arias",
+        "email": "stevenarias769@gmail.com",
+        "role": "Developer Frontend"
+    }],
+    "autoload": {
+        "psr-4": {
+            "App\\": "app/"
+        }
+    },
+    "require": {
+        "illuminate/database": "^7.13",
+        "aura/router": "^3.1",
+        "zendframework/zend-diactoros": "^2.2",
+        "twig/twig": "^3.0",
+        "respect/validation": "^2.0",
+        "stripe/stripe-php": "^7.36"
+    }
+}

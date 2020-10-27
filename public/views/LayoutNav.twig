@@ -1,0 +1,195 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Deerhost Template">
+    <meta name="keywords" content="Deerhost, unica, creative, html">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    {% block namepage %}{% endblock %}
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,600,700,800,900&display=swap" rel="stylesheet">
+
+    <!-- Css Styles -->
+    <link rel="stylesheet" href="../css/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="../css/font-awesome.min.css" type="text/css">
+    <link rel="stylesheet" href="../css/elegant-icons.css" type="text/css">
+    <link rel="stylesheet" href="../css/flaticon.css" type="text/css">
+    <link rel="stylesheet" href="../css/owl.carousel.min.css" type="text/css">
+    <link rel="stylesheet" href="../css/slicknav.min.css" type="text/css">
+    <link rel="stylesheet" href="../css/style.css" type="text/css">
+
+        <!-- Accounts -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <!-- Page Preloder -->
+    <div id="preloder">
+        <div class="loader"></div>
+    </div>
+    <!-- Offcanvas Menu Begin -->
+    <div class="offcanvas__menu__overlay"></div>
+    <div class="offcanvas__menu__wrapper">
+        <div class="canvas__close">
+            <span class="fa fa-times-circle-o"></span>
+        </div>
+        <div class="header__logo">
+            <a href="https://www.espanol.marriott.com/hotels/travel/vsamc-villahermosa-marriott-hotel/"><img src="../img/logo9.png" alt="Logo del Marriott" style="height: 20px;"></a>
+        </div>
+        <nav class="offcanvas__menu mobile-menu">
+            {% block Nav %}{% endblock %}
+        </nav>
+        <div id="mobile-menu-wrap"></div>
+        <div class="offcanvas__auth">
+            <ul>
+                <li><a href="/logout"><span class="fa fa-sign-out"></span> Sign Out </a></li>
+            </ul>
+        </div>
+        <div class="offcanvas__info">
+            <ul>
+                <li><span class="icon_phone"></span> +52 993 310 0201</li>
+                <li><span class="fa fa-envelope"></span> soportetecnico@hotel.marriot.com</li>
+            </ul>
+        </div>
+    </div>
+    <!-- Offcanvas Menu End -->
+
+        <!-- Header Section Begin -->
+    <header class="header-section header-normal">
+        <div class="header__info">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6 col-md-6">
+                        <div class="header__info-left">
+                            <ul>
+                                <li><span class="icon_phone"></span> +52 993 310 0201</li>
+                                <li><span class="fa fa-envelope"></span> soportetecnico@hotel.marriot.com</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-6">
+                        <div class="header__info-right">
+                            <ul>
+                                <li><a href="/logout"><span class="fa fa-sign-out"></span> Sign Out </a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 col-md-3">
+                    <div class="header__logo">
+                        <a href="https://www.espanol.marriott.com/hotels/travel/vsamc-villahermosa-marriott-hotel/"><img src="../img/logo9.png" alt="Logo del Marriott" style="height: 50px;"></a>
+                    </div>
+                </div>
+                <div class="col-lg-9 col-md-9">
+                    <nav class="header__menu">
+                        {% block NavMax %}{% endblock %}
+                    </nav>
+                </div>
+            </div>
+            <div class="canvas__open">
+                <span class="fa fa-bars"></span>
+            </div>
+        </div>
+    </header>
+    <!-- Header End -->
+        <!-- Breadcrumb Begin -->
+    <div class="breadcrumb-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    {% block ubication %}{% endblock %}
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Breadcrumb End -->
+{% block content %}
+{% endblock %}
+
+    <!-- Footer Section Begin -->
+    <footer class="footer-section ">
+        <div class="footer__top ">
+            <div class="container ">
+                <div class="row ">
+                    <div class="col-lg-6 col-md-6 ">
+                        <div class="footer__top-call ">
+                            <h5>Send us your doubts</h5>
+                            <h2><a href="mailto:soportetecnico@hotel.marriot.com " target="_blank ">soportetecnico@hotel.marriot.com</a></h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer__text set-bg " data-setbg="../img/footer-bg.png ">
+            <div class="container ">
+                <div class="row ">
+                    <div class="col-lg-4 col-md-6 col-sm-12 ">
+                        <div class="footer__text-about ">
+                            <div class="footer__logo">
+                                <a href="https://www.espanol.marriott.com/hotels/travel/vsamc-villahermosa-marriott-hotel/">
+                                    <img src="../img/logo9.png" alt="Logo Marriot" style="height: 100px;">
+                                </a>
+                            </div>
+                            <p>
+                                Luxury hotel in Villahermosa with free parking and easy access to a shopping center. This hotel features a restaurant, an outdoor pool and a gym. Self parking is free. Other facilities include a bar / lounge, a 24-hour business center and Wi-Fi in public areas.
+                            </p>
+                            <div class="footer__social ">
+                                <a href="https://www.facebook.com/HotelMarriottVillahermosa/ "><i class="fa fa-facebook "></i></a>
+                                <a href="https://www.instagram.com/hotelmarriottvillahermosa/ "><i class="fa fa-instagram "></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-12 col-sm-12 ">
+                        <div class="footer__text-widget ">
+                            <h5>Company</h5>
+                            <ul>
+                                <li><a href="https://www.espanol.marriott.com/default.mi ">Company</a></li>
+                                <li>
+                                    <a href="https://www.espanol.marriott.com/loyalty/createAccount/createAccountPage1.mi ">Blogs</a></li>
+                                <li><a href="https://www.espanol.marriott.com/marriott/aboutmarriott.mi ">About Us</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-sm-12 ">
+                        <div class="footer__text-widget ">
+                            <h5>cONTACT US</h5>
+                            <ul class="footer__widget-info ">
+                                <li><span class="fa fa-map-marker "></span>Ave. Paseo Tabasco 1407, Col. Tabasco 2000 Villahermosa, Tabasco 86030 México</li>
+                                <li><span class="fa fa-mobile "></span> +52 993 310 0201 | +52 993 310 0201</li>
+                                <li><span class="fa fa-headphones "></span> soportetecnico@hotel.marriot.com</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer__text-copyright ">
+                    <p>
+                        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                        Copyright &copy;
+                        <script>
+                            document.write(new Date().getFullYear());
+                        </script> All rights reserved by <a href="https://www.facebook.com/DevWeb-105448677849164" target="_blank ">DevWeb</a>
+                        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- Footer Section End -->
+
+    <!-- Js Plugins -->
+    <script src="../js/jquery-3.3.1.min.js "></script>
+    <script src="../js/bootstrap.min.js "></script>
+    <script src="../js/jquery.slicknav.js "></script>
+    <script src="../js/owl.carousel.min.js "></script>
+    <script src="../js/main.js "></script>
+</body>
+
+</html>

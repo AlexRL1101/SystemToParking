@@ -1,0 +1,210 @@
+<html lang="en">
+
+<head>
+    {% block title %}{% endblock %}
+
+    <link href='https://fonts.googleapis.com/css?family=Lato:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="../js/jQuery-Seat-Charts/jquery.seat-charts.css">
+
+</head>
+
+<body>
+    <div class="wrapper">
+        <a href="/reservation"><button class="checkout-button">Cancel</button></a>
+        <div class="container">
+            <div id="seat-map">
+                <div class="front-indicator">First Floor</div>
+
+                <form action="/select/box" method="post">
+            </div>
+            <div class="booking-details">
+                <h2>Booking Details</h2>
+                <h3> Selected Position (<span id="counter">0</span>):</h3>
+                <ul id="selected-seats"></ul>
+
+                Total: <b>$<span id="total">0</span></b>
+
+
+                <input type="hidden" name="num" id="num" value="" />
+                <input type="hidden" name="ubica" id="ubica" value="" />
+                <input type="hidden" name="type" id="type" value="" />
+                <input type="hidden" name="price" id="price" value="" />
+                <input type="hidden" name="count" id="count" value="" />
+                </br>
+                <h3>Select Vehicle:</h3>
+                </br>
+                <select name="typecar" required>
+                            <option selected>Choose</option>
+                        {% for job in jobs %}
+                            <option value="{{ job.modelo }} {{job.marca}}">{{ job.modelo }} {{job.marca}}</option>
+                        {% endfor %}
+                    </select>
+                <br>
+                <button id="btn-abrir-popup" type="submit" class="checkout-button">Checkout &raquo;</button>
+                </form>
+                <a href="/vehicle/add"><button class="checkout-button">Add New Vehicle</button></a>
+                <div id="legend"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script src="../js/jQuery-Seat-Charts/jquery.seat-charts.js"></script>
+
+    <script>
+        var firstSeatLabel = 1;
+
+        $(document).ready(function() {
+            var $cart = $('#selected-seats'),
+                $counter = $('#counter'),
+                $total = $('#total'),
+                sc = $('#seat-map').seatCharts({
+                    map: {% block content %} {% endblock %},
+                    seats: {
+                        a: {
+                            price: 100,
+                            classes: 'first-class', //your custom CSS class
+                            category: 'VIP Class'
+                        },
+                        b: {
+                            price: 65,
+                            classes: 'economy-class', //your custom CSS class
+                            category: 'Economy Class'
+                        },
+                        c: {
+                            price: 30,
+                            classes: 'economy-long', //your custom CSS class
+                            category: 'Cheapest Class'
+                        }
+
+                    },
+                    naming: {
+                        top: false,
+                        //Ubicacion
+                        getLabel: function(character, row, column) {
+                            return firstSeatLabel++;
+                        },
+                        //Numero de Cajon
+                        getId: function(character, row, column) {
+                            return row + '_' + column;
+                        },
+                    },
+                    legend: {
+                        node: $('#legend'),
+                        items: [
+                            ['a', 'available', 'VIP Class 100$'],
+                            ['b', 'available', 'Economy Class 65$'],
+                            ['c', 'available', 'Cheapest Class 30$'],
+                            ['d', 'unavailable', 'Reserved Class'],
+                            ['d', 'selected', 'Selected']
+                        ]
+                    },
+                    click: function() {
+                        if (this.status() == 'available') {
+                            var maxSeats = 1;
+                            var ms = sc.find('selected').length;
+                            //Creemos un nuevo <li> que agregaremos a los artículos del carrito
+                            //En label podria ir el ID de cada objeto en el mapa para los reservados
+                            if (ms < maxSeats) {
+                                $('<li>' + this.data().category + ' Seat # ' + this.settings.label + ': <b>$' + this.data().price + '</b> <a href="#" class="cancel-cart-item">[cancel]</a></li>')
+                                    .attr('id', 'cart-item-' + this.settings.id)
+                                    .data('seatId', this.settings.id)
+                                    .appendTo($cart);
+
+                                var numreserve = [];
+                                var ubication = [];
+                                var type = [];
+                                var pri = [];
+                                var count = [];
+
+                                numreserve.push(this.settings.label);
+                                ubication.push(this.settings.id);
+                                type.push(this.data().category);
+                                pri.push(this.data().price);
+                                count.push($counter.text(sc).length);
+
+                                document.getElementById('count').value = count;
+                                document.getElementById('num').value = numreserve;
+                                document.getElementById('ubica').value = ubication;
+                                document.getElementById('type').value = type;
+                                document.getElementById('price').value = pri;
+                                /*
+                                 * Lets update the counter and total
+                                 *
+                                 * .find function will not find the current seat, because it will change its stauts only after return
+                                 * 'selected'. This is why we have to add 1 to the length and the current seat price to the total.
+                                 */
+                                $counter.text(sc.find('selected').length + 1);
+                                $total.text(recalculateTotal(sc) + this.data().price);
+
+                                return 'selected';
+                            }
+                            alert('You can only choose ' + maxSeats + ' position. If you want to get another place to reserve we suggest you make another reservation');
+                            return 'available';
+                        } else if (this.status() == 'selected') {
+                            //actualizar el contador
+                            $counter.text(sc.find('selected').length - 1);
+                            $counter.attr('value', sc.find('selected').length - 1);
+                            //and total
+                            $total.text(recalculateTotal(sc) - this.data().price);
+                            $total.attr('value', recalculateTotal(sc) - price);
+
+                            //eliminar el artículo de nuestro carrito
+                            $('#cart-item-' + this.settings.id).remove();
+
+                            //el asiento ha sido desocupado
+                            return 'available';
+                        } else if (this.status() == 'unavailable') {
+                            //seat has been already booked
+                            return 'unavailable';
+                        } else {
+                            return this.style();
+                        }
+                    }
+                });
+
+            //Actualizar las reservas cada 10seg.
+            /*setInterval(function() {
+                $.ajax({
+                    type: 'get',
+                    url: '/bookings/get/100',
+                    dataType: 'json',
+                    success: function(response) {
+                        //iterate through all bookings for our event 
+                        $.each(response.bookings, function(index, booking) {
+                            //find seat by id and set its status to unavailable
+                            sc.status(booking.seat_id, 'unavailable');
+                        });
+                    }
+                });
+            }, 10000); //every 10 seconds*/
+
+            //Esto manejará los clics en el enlace "[cancelar]"
+            $('#selected-seats').on('click', '.cancel-cart-item', function() {
+                //solo activemos el evento Click en el asiento apropiado, para que no tengamos que repetir la lógica aquí
+                sc.get($(this).parents('li:first').data('seatId')).click();
+            });
+
+            //Bloquear los espacios que ya estan reservados
+            sc.get([
+                {% for ocup in ocups %}
+                    '{{ ocup.posicion }}',
+                {% endfor %}
+        ]).status('unavailable');
+        });
+        
+
+        function recalculateTotal(sc) {
+            var total = 0;
+
+            //Básicamente encuentra cada asiento seleccionado y suma su precio
+            sc.find('selected').each(function() {
+                total += this.data().price;
+            });
+
+            return total;
+        }
+    </script>
+</body>
+
+</html>

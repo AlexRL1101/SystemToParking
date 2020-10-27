@@ -1,0 +1,157 @@
+{% extends "LayoutStart.twig" %}
+
+{% block content %}
+    <!-- Breadcrumb Begin -->
+    <div class="breadcrumb-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="breadcrumb__option">
+                        <a href="">
+                            <i class="fas fa-home"></i> Home
+                        </a>
+                        <span>Home</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Breadcrumb Begin -->
+    <section class="about-section spad">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="about__img">
+                        <img src="img/hotel 4.jpg" class="imagen" alt="">
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="about__text">
+                        <h2 style="text-align:center;">Hotel marriott</h2>
+                        <p style="text-align: justify;">Located in the heart of Villahermosa, close to oil companies and the Carlos Rovirosa Pérez International Airport is Villahermosa Marriott Hotel.
+                        </p>
+                        <div class="about__achievement">
+                            <div class="about__achieve__item">
+                                <span>
+                                    <i class="fas fa-user-clock"></i>
+                                </span>
+                                <h4 class="achieve-counter">{{ userCount }}</h4>
+                                <p>Clients</p>
+                            </div>
+                            <div class="about__achieve__item">
+                                <span>
+                                    <i class="fas fa-user-check"></i>
+                                    </i>
+                                </span>
+                                <h4 class="achieve-counter">94%</h4>
+                                <p>recommendations</p>
+                            </div>
+                            <div class="about__achieve__item">
+                                <span>
+                                    <i class="fas fa-star"></i>
+                                    </i>
+                                </span>
+                                <h4 class="achieve-counter">10.00</h4>
+                                <p>Services</p>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="footer__top-auth">
+                            <button id="btn-abrir-popup" class="primary-btn" style="position: absolute; top: 80%; left: 15%;">Login</button>
+                            <a href="/registry" class="primary-btn" style="position: absolute;top: 80%; left: 55%;">Sign Up
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Feature Section Begin -->
+    <section class="feature-section spad">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="section-title">
+                        <h3>Comfort</h3>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-4 col-md-6 col-sm-6">
+                    <div class="feature__item">
+                        <span>
+                        <i class="fas fa-dumbbell"></i>
+                    </span>
+                        <h5>Gym</h5>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-6">
+                    <div class="feature__item">
+                        <span>
+                        <i class="fas fa-wifi"></i>
+                    </span>
+                        <h5>Free high speed internet</h5>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-6">
+                    <div class="feature__item">
+                        <span>
+                        <i class="fas fa-user-friends"></i>
+                    </span>
+                        <h5>Event and meeting space</h5>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-6">
+                    <div class="feature__item">
+                        <span>
+                        <i class="fas fa-shield-alt"></i>
+                    </span>
+                        <h5>Security</h5>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-6">
+                    <div class="feature__item">
+                        <span>
+                        <i class="fas fa-swimmer"></i>
+                    </span>
+                        <h5>Swimming pool</h5>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-6">
+                    <div class="feature__item">
+                        <span>
+                        <i class="fab fa-accessible-icon"></i>
+                    </span>
+                        <h5>Care for the disabled</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- inica ventana flotante -->
+    <div class="overlay" id="overlay">
+        <div class="popup" id="popup">
+            <a href="Home.twig" id="btn-cerrar-popup" class="btn-cerrar-popup">
+                <i class="fas fa-times"></i>
+            </a>
+            <div class="alert alert-primary" role="alert">
+  {{ responseMessage }}
+</div>
+            <h3>Login</h3>
+            <form action="/auth" method="post">
+                <div class="contenedor-inputs">
+                    <input name="correouser" type="email" placeholder="Email"><i class="icono fas fa-envelope" style="position: absolute;top: 35%;left: 10%;"></i>
+                    <input name="passworduser" type="password" placeholder="Password"><i class="icono fas fa-key" style="position: absolute;top: 52%;left: 10%;"></i>
+                </div>
+                <input type="submit" class="btn-submit" value="Login">
+            </form>
+                <p>By registering, you accept our Terms of Use and Privacy Policy.</p>
+                <p>You do not have an account?<a class="link" href="/registry">Sign up</a>
+                </p>
+        </div>
+    </div>
+{% endblock %}
+
+{% block nombrepage %}
+ <title>Home</title>
+{% endblock %}

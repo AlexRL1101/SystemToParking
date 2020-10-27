@@ -1,0 +1,105 @@
+{% extends "LayoutNav.twig" %}
+
+{% block content %}
+<!-- Hosting Section Begin -->
+<section class="about-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4"></div>
+            <div class="col-lg-4">
+                <div class="alert alert-primary" role="alert">
+                    {{ success }}
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="hosting-section spad">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="section-title">
+                    <h3>Your reservation history</h3>
+                </div>
+                <div class="hosting__text">
+                    <div class="tab-content">
+                        <div class="tab-pane  active" id="tabs-3" role="tabpanel">
+                            <div class="hosting__feature__table">
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th>
+                                                <div class="hosting__feature__plan--choose">
+                                                    <div class="chose__title">Date</div>
+                                                </div>
+                                            </th>
+                                            <th>
+                                                <div class="hosting__feature--plan">
+                                                    <div class="plan__title">Floor</div>
+                                                </div>
+                                            </th>
+                                            <th>
+                                                <div class="hosting__feature--plan">
+                                                    <div class="plan__title">Vehicle</div>
+                                                </div>
+                                            </th>
+                                            <th>
+                                                <div class="hosting__feature--plan">
+                                                    <div class="plan__title">Code</div>
+                                                </div>
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                            {% for dat in date %}
+                                        <tr>
+                                        
+                                            <td class="hosting__feature--item">{{ dat.fechareservar }} {{dat.horareservar}}</td>
+                                            <td class="hosting__feature--check">
+                                                {{ dat.piso }}
+                                            </td>
+                                            <td class="hosting__feature--check">
+                                                {{ dat.vehiculo }}
+                                            </td>
+                                            <td class="hosting__feature--check">
+                                                {{ dat.codigo }}
+                                            </td>
+                                        </tr>
+                                        {% endfor %}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section><br><br><!-- Hosting Section End -->
+{% endblock %}
+{% block namepage %}
+<title>History</title>
+{% endblock %}
+{% block Nav %}
+<ul>
+    <li><a href="/vehicle/add">Add Vehicles</a></li>
+    <li><a href="/reservation">Schedule a Reservation</a></li>
+    <li><a href="/account">Account</a></li>
+    <li class="active"><a href="/history">History</a></li>
+</ul>
+{% endblock %}
+{% block NavMax %}
+<ul>
+    <li><a href="/vehicle/add">Add Vehicles</a></li>
+    <li><a href="/reservation">Schedule a Reservation</a></li>
+    <li><a href="/account">Account</a></li>
+    <li class="active"><a href="/history">History</a></li>
+</ul>
+{% endblock %}
+{% block ubication %}
+<div class="breadcrumb__option">
+<a href="./index.html">
+<span class="fa fa-home"></span>Home</a>
+<span>History</span>
+</div>
+{% endblock %}

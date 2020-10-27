@@ -1,0 +1,134 @@
+{% extends "LayoutNav.twig" %}
+
+{% block content %}
+	<!-- Inicia Account -->
+	<div class="breadcrumb-section">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-12">
+					
+						<form action="/new/data" method="post" id="perfil">
+							<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 toppad">
+								<div class="panel panel-success"><br>
+									<h2 class="panel-title">
+										<center>
+											<font size="5">
+												<i class='glyphicon glyphicon-user'></i> UPDATE YOUR PROFILE</font>
+										</center>
+									</h2>
+        <div class="row">
+            <div class="col-lg-4"></div>
+            <div class="col-lg-4">
+                <div class="alert alert-primary" role="alert">
+                    {{ message }}
+                </div>
+            </div>
+    </div>
+									<div class="panel-body">
+										<div class="row">
+											<div class="col-md-3 col-lg-3 " align="center">
+												<div id="load_img"></div>
+												<br>
+											</div>
+											<div class=" col-md-9 col-lg-9 ">
+												<table class="table table-condensed">
+													<tbody>
+														<tr>
+															<td class='col-md-3'>Name</td>
+															<td><input name="namepro" type="text" class="form-control input-sm" name="nombre" required></td>
+														</tr>
+														<tr>
+															<td>Last name:</td>
+															<td><input name="lastnamepro" type="text" class="form-control input-sm" name="apellidoP"></td>
+														</tr>
+														<tr>
+															<td>Mother's last name:</td>
+															<td><input name="lasnamemotherpro" type="text" class="form-control input-sm" name="apellidoM" required></td>
+														</tr>
+														<tr>
+															<td>Email:</td>
+															<td><input name="mailpro" type="email" class="form-control input-sm" name="correo" required></td>
+														</tr>
+														<tr>
+															<td>Sexo:</td>
+															<td>
+																<input name="sexo" type="radio" value="Man">Man
+																<input name="sexo" type="radio" value="Woman">Woman
+															</td>
+														</tr>
+														<tr>
+															<td>Age</td>
+															<td><input name="agepro" type="text" class="form-control input-sm" name="edad" required></td>
+														</tr>
+													</tbody>
+												</table>
+
+
+											</div>
+											<div class='col-md-12' id="resultados_ajax"></div>
+											<!-- Carga los datos -->
+										</div>
+									</div>
+                  
+									<div class="panel-footer text-center">
+                  <label><input type="checkbox" name="cb-terminosservicio" required> I accept the terms of service</label><br>
+										<button type="submit" class="btn btn-sm btn-success">
+											<i class="glyphicon glyphicon-refresh"></i>
+											Saved</button>
+									</div>
+
+								</div>
+							</div>
+						</form>
+				</div>
+			</div>
+		</div>
+	</div>
+{% endblock %}
+
+{% block namepage %}
+	<title>Account</title>
+{% endblock %}
+
+{% block Nav %}
+	<ul>
+		<li>
+			<a href="/vehicle/add">Add Vehicles</a>
+		</li>
+		<li>
+			<a href="/reservation">Schedule a Reservation</a>
+		</li>
+		<li class="active">
+			<a href="/account">Account</a>
+		</li>
+		<li>
+			<a href="/history">History</a>
+		</li>
+	</ul>
+{% endblock %}
+
+{% block NavMax %}
+	<ul>
+		<li>
+			<a href="/vehicle/add">Add Vehicles</a>
+		</li>
+		<li>
+			<a href="/reservation">Schedule a Reservation</a>
+		</li>
+		<li class="active">
+			<a href="/account">Account</a>
+		</li>
+		<li>
+			<a href="/history">History</a>
+		</li>
+	</ul>
+{% endblock %}
+
+{% block ubication %}
+	<div class="breadcrumb__option">
+		<a href="/vehicle/add">
+			<span class="fa fa-home"></span>
+			Home</a>
+		<span>Account</span>
+	</div>
+{% endblock %}

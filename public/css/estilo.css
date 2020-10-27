@@ -1,0 +1,80 @@
+
+.titulo h2{
+    font-family: 'Times New Roman', Times, serif;
+    
+    margin:  40px;
+    color: lightyellow;
+}
+
+.secciones h3{
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    margin: 40px;
+    text-align: center;
+}
+
+.secciones p{
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    margin: 40px;
+    
+}
+
+
+
+
+/* para la parte azulito atras del texto */
+.wrap{
+    width: 90px;
+    max-width: 200px;
+    margin: 50px 390px; /* altura y pasicion del cuadro azulito   */
+   
+}
+/* para el color de la parte de atras  */
+.secciones{
+    width: 700%;
+    background-color: rgb(167, 198, 233);
+    
+
+}
+
+.secciones article{
+    padding: 3%;
+    text-align: center;
+}
+
+.imagennn{
+    width: 220px;
+    height: 90px;
+}
+
+.imagen2{
+    width: 1050px;
+    height: 150px;
+}
+
+.paypal{
+    width: 300px;
+    height: 100px;
+    padding: 10%;
+   
+}
+
+.logo{
+    width: 200px;
+    height: 90px;
+   
+    float: left;
+    
+}
+
+
+
+/* parte de la tarjeta de credito */
+.credit-card-div  span { padding-top:10px; }
+.credit-card-div img { padding-top:30px; }
+.credit-card-div .small-font { font-size:9px; }
+.credit-card-div .pad-adjust { padding-top:10px; }
+
+.tarjeta{
+    width: 250px;
+     float: right;
+ }

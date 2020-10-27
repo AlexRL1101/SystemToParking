@@ -1,0 +1,181 @@
+{% extends "LayoutNav.twig" %} {% block content %}
+<!-- About Section Begin -->
+<section class="about-section spad">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="about__img">
+                    <img src="img/carusel/7.jpg" alt="Imagen Agenda">
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="about__text">
+                    <h2>Welcome to the reservation agenda</h2>
+                    <p>In this section you can make the reservations you want, you can also select the date and time of your stay.
+                    </p>
+                    <div class="about__achievement">
+                        <div class="about__achieve__item">
+                            <span class="fa fa-user-o"></span>
+                            <h4 class="achieve-counter">{{ countUser }}</h4>
+                            <p>Clients</p>
+                        </div>
+                        <div class="about__achieve__item">
+                            <span class="fa fa-edit"></span>
+                            <h4 class="achieve-counter">118</h4>
+                            <p>Parking Places</p>
+                        </div>
+                        <div class="about__achieve__item">
+                            <span class="fa fa-video-camera"></span>
+                            <h4 class="achieve-counter">50</h4>
+                            <p>Camcorders</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- About Section End -->
+
+
+<!--Form Reservation Begin-->
+<section class="breadcrumb-section">
+    <div class="container">
+        <div class="row d-flex justify-content-center">
+            <div class="col-lg-5">
+
+                <!--Begin Form-->
+                <form action="/save" method="post" class="question-form ">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-5">
+                                <div class="section-title">
+                                    <h3>Select Date and Time to Reservation</h3>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <b>Select Date and Time:</b>
+                        <input class="input" type="date" name="fechareser" required>
+                        <input class="input" type="time" name="tiemporeser" required>
+                    </div>
+
+                    <!--Begin Help Soport-->
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-5">
+                                <div class="section-title">
+                                    <h3>Duration of the reservation</h3>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-5">
+                                <div class="question__accordin">
+                                    <div class="accordion" id="accordionExample">
+                                        <div class="card">
+                                            <div class="card-heading active">
+                                                <a class="active" data-toggle="collapse" data-target="#collapseTwo">
+                                                        Approximate date of your stay:
+                                                    </a>
+                                            </div>
+                                            <div id="collapseTwo" class="collapse show" data-parent="#accordionExample">
+                                                <div class="card-body">
+                                                    <input type="date" name="fechasalida" required>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="card">
+                                            <div class="card-heading">
+                                                <a data-toggle="collapse" data-target="#collapseOne">
+                                                        Approximate time of your stay:
+                                                        </a>
+                                            </div>
+                                            <div id="collapseOne" class="collapse" data-parent="#accordionExample">
+                                                <div class="card-body">
+                                                    <input type="time" name="tiemposalida" required>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+                    <!--End Help Soport-->
+
+
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-5">
+                                <div class="section-title">
+                                    <h3>Select the Floor Level</h3>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <b>Level:</b>
+                        <select id="inputState" name="nivelreser" class="form-control" required>
+									<option selected>Choose...</option>
+									<option value="1">First</option>
+									<option value="2">Second</option>
+									<option value="3">Third</option>
+                            </select>
+                        <br>
+                    </div>
+                    <br>
+                    <br>
+                    <div style="text-align: center;">
+                        <button type="submit" class="site-btn">Send</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+<br>
+<br>
+<!--End Form-->
+{% endblock %} {% block namepage %}
+<title>Reservation</title>
+{% endblock %} {% block Nav %}
+<ul>
+    <li>
+        <a href="/vehicle/add">Add Vehicles</a>
+    </li>
+    <li class="active">
+        <a href="/reservation">Schedule a Reservation</a>
+    </li>
+    <li>
+        <a href="/account">Account</a>
+    </li>
+    <li>
+        <a href="/history">History</a>
+    </li>
+</ul>
+{% endblock %} {% block NavMax %}
+<ul>
+    <li>
+        <a href="/vehicle/add">Add Vehicles</a>
+    </li>
+    <li class="active">
+        <a href="/reservation">Schedule a Reservation</a>
+    </li>
+    <li>
+        <a href="/account">Account</a>
+    </li>
+    <li>
+        <a href="/history">History</a>
+    </li>
+</ul>
+{% endblock %} {% block ubication %}
+<div class="breadcrumb__option">
+    <a href="/vehicle/add">
+        <span class="fa fa-home"></span> Home
+    </a>
+    <span>Schedule a Reservation</span>
+</div>
+{% endblock %}

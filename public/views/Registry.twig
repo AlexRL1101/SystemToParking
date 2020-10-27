@@ -1,0 +1,77 @@
+{% extends "LayoutStart.twig" %}
+
+{% block content %}
+	<!-- Breadcrumb Begin -->
+	<div class="breadcrumb-section">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-12">
+					<div class="breadcrumb__option">
+						<a href="/">
+							<i class="fas fa-home"></i>
+							Home
+						</a>
+						<span>Registry</span>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- Breadcrumb Begin -->
+        <div class="row">
+            <div class="col-lg-4"></div>
+            <div class="col-lg-4">
+                <div class="alert alert-primary" role="alert">
+                    {{ responseMessage }}
+                </div>
+            </div>
+    </div>
+
+	<form action="/registry" class="formulario" method="post">
+
+		<h1>Sign up</h1>
+		<div class="contenedor">
+
+			<div class="input-contenedor">
+				<i class="fas fa-user icon"></i>
+				<input name="nameuser" type="text" placeholder="Full Name" required>
+			</div>
+
+    		<div class="input-contenedor">
+         		<i class="fas fa-male icon"></i>
+         		<input name="lastfather" type="text" placeholder="Last Name Father">
+    		</div>
+			<div class="input-contenedor">
+         		<i class="fas fa-female icon"></i>
+         		<input name="lastmother" type="text" placeholder="Last Name Mother">
+    		</div>
+			<div class="input-contenedor">
+				 <i class="fas fa-venus-mars icon"></i>
+				 Sexo: 
+    				<input type="radio" name="hm" value="Man"> Man
+    				<input type="radio" name="hm" value="Woman"> Woman
+    		</div>
+			<div class="input-contenedor">
+				<i class="fas fa-birthday-cake icon"></i>
+         		<input name="age" type="text" placeholder="Age">
+    		</div>
+			<div class="input-contenedor">
+				<i class="fas fa-envelope icon"></i>
+				<input name="mailuser" type="text" placeholder="Email" required>
+			</div>
+			<div class="input-contenedor">
+				<i class="fas fa-key icon"></i>
+				<input name="passworduser" type="password" placeholder="Password" required>
+			</div>
+			<input type="submit" value="Sign up" class="button">
+			<p>By registering, you agree to our Terms of Use and Privacy Policy.</p>
+			<p>Do you already have an account?<a class="link" href="/">Log in</a>
+			</p>
+		</div>
+	</form>
+	<!-- Breadcrumb End -->
+{% endblock %}
+
+{% block nombrepage %}
+	<title>Sing Up</title>
+{% endblock %}
