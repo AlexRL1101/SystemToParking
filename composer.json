@@ -23,6 +23,7 @@
         "zendframework/zend-diactoros": "^2.2",
         "twig/twig": "^3.0",
         "respect/validation": "^2.0",
+        "vlucas/phpdotenv": "^2.5",
         "stripe/stripe-php": "^7.36"
     }
 }
