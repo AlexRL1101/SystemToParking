@@ -9,8 +9,8 @@ require_once '../vendor/autoload.php';
 
 session_start();
 
-$dotenv  = new Dotenv\Dotenv( __DIR__ . '/..'); 
-$dotenv -> load();
+// $dotenv  = new Dotenv\Dotenv( __DIR__ . '/..'); 
+// $dotenv -> load();
 //Son como librerias, como include de C
 use Illuminate\Database\Capsule\Manager as Capsule;
 use Aura\Router\RouterContainer;
@@ -20,16 +20,16 @@ use Zend\Diactoros\Response\RedirectResponse;
 $capsule = new Capsule;
 //Datos y Conexion a BD
 $capsule->addConnection([
-  'driver'    => getenv('DB_DRIVER'),
-  'host'      => getenv('DB_HOST'),
-  'database'  => getenv('DB_NAME'),
-  'username'  => getenv('DB_USER'),
-  'password'  => getenv('DB_PASS'),
-  'charset'   => 'utf8',
-  'collation' => 'utf8_unicode_ci',
-  'prefix'    => '',
-  'port'      => getenv('DB_PORT')
-    /* 'driver'    => 'mysql',
+  // 'driver'    => getenv('DB_DRIVER'),
+  // 'host'      => getenv('DB_HOST'),
+  // 'database'  => getenv('DB_NAME'),
+  // 'username'  => getenv('DB_USER'),
+  // 'password'  => getenv('DB_PASS'),
+  // 'charset'   => 'utf8',
+  // 'collation' => 'utf8_unicode_ci',
+  // 'prefix'    => '',
+  // 'port'      => getenv('DB_PORT')
+    'driver'    => 'mysql',
     'host'      => 'localhost',
     'database'  => 'bd_hotel',
     'username'  => 'root',
@@ -37,7 +37,7 @@ $capsule->addConnection([
     'charset'   => 'utf8',
     'collation' => 'utf8_unicode_ci',
     'prefix'    => '',
-    'port'      => getenv('DB_PORT'), */
+    'port'      => getenv('DB_PORT'),
 ]);
 // Make this Capsule instance available globally via static methods... (optional)
 $capsule->setAsGlobal();

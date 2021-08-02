@@ -2,7 +2,7 @@
 
 namespace App\Controllers;
 
-use App\Models\{Parking, Pay, Reservation, User,Transaction};
+use App\Models\{Parking, Pay, Reservation,Transaction};
 use Respect\Validation\Validator as v;
 
 class PaymentController extends BaseController {
@@ -27,7 +27,7 @@ $customer = \Stripe\Customer::create(array(
     "source" => $token
   ));
   
-  $queryCount = Parking::select('precio')->where('id_cliente',$session)->orderByDesc('cerated_at')->first();
+  $queryCount = Parking::select('precio')->where('id_cliente',$session)->orderByDesc('created_at')->first();
   $count= $queryCount->precio;
 
   // Charge Customer

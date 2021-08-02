@@ -2,8 +2,7 @@
 
 namespace App\Controllers;
 
-use App\Models\{Reservation,Parking, Stand};
-use Respect\Validation\Validator as v;
+use App\Models\{Reservation,Parking};
 
 class SelectBoxController extends BaseController {
     public function postAddBox($request) {

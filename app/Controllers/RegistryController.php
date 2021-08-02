@@ -2,7 +2,7 @@
 
 namespace App\Controllers;
 
-use App\Models\{User,Vehicle,Parking, Reservation};
+use App\Models\{User,Vehicle, Reservation};
 use Respect\Validation\Validator as v;
 
 class RegistryController extends BaseController

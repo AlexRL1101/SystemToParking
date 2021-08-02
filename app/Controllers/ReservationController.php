@@ -2,7 +2,7 @@
 
 namespace App\Controllers;
 
-use App\Models\{Parking, Reservation, User, Time, Pay, Vehicle};
+use App\Models\{Reservation, User, Pay, Vehicle};
 use Respect\Validation\Validator as v;
 use Illuminate\Database\Capsule\Manager as Capsule;
 
